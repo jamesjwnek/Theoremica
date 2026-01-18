@@ -189,8 +189,14 @@
     <div id="header">
         <h1>📐 Theoremica - Visual Proof Builder</h1>
         <div style="display: flex; gap: 10px; align-items: center;">
-            <a href="math240.html" style="color: white; text-decoration: none; font-size: 14px; font-weight: 600; padding: 10px 15px; border: 1px solid white; border-radius: 5px; transition: all 0.3s;" onmouseover="this.style.backgroundColor='rgba(255,255,255,0.2)'" onmouseout="this.style.backgroundColor='transparent'">← Back to Course</a>
-            <a href="index.html" style="color: white; text-decoration: none; font-size: 14px; font-weight: 600; padding: 10px 15px; border: 1px solid white; border-radius: 5px; transition: all 0.3s;" onmouseover="this.style.backgroundColor='rgba(255,255,255,0.2)'" onmouseout="this.style.backgroundColor='transparent'">Main Menu</a>
+            <a href="math240.html"
+                style="color: white; text-decoration: none; font-size: 14px; font-weight: 600; padding: 10px 15px; border: 1px solid white; border-radius: 5px; transition: all 0.3s;"
+                onmouseover="this.style.backgroundColor='rgba(255,255,255,0.2)'"
+                onmouseout="this.style.backgroundColor='transparent'">← Back to Course</a>
+            <a href="index.html"
+                style="color: white; text-decoration: none; font-size: 14px; font-weight: 600; padding: 10px 15px; border: 1px solid white; border-radius: 5px; transition: all 0.3s;"
+                onmouseover="this.style.backgroundColor='rgba(255,255,255,0.2)'"
+                onmouseout="this.style.backgroundColor='transparent'">Main Menu</a>
             <button id="exportButton" type="button">Check Solution</button>
         </div>
     </div>
@@ -967,14 +973,14 @@
         // ============================================================================
         // LOAD PROOF STATEMENT FROM URL
         // ============================================================================
-        
+
         const urlParams = new URLSearchParams(window.location.search);
         const proofName = urlParams.get('proof') || 'Theorem';
         const proofStatement = urlParams.get('statement') || 'Prove this theorem';
-        
+
         // Update the header with the proof name
         document.querySelector('h1').textContent = '📐 Theoremica - ' + proofName;
-        
+
         // Display the proof statement in the info panel
         const infoPanelHTML = `
             <h2 style="margin-top: 0; color: #2c3e50; font-size: 20px; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Prove:</h2>
@@ -997,7 +1003,7 @@
                 <span id="statusText">Checking backend connection...</span>
             </div>
         `;
-        
+
         document.getElementById('infoPanel').innerHTML = infoPanelHTML;
 
         // Persist workspace to localStorage to avoid resets
