@@ -1,0 +1,31 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["a88d232cbf76359e.olean"],
+  "i": "4f430490a34b90f0.ilean",
+  "c": "c4c1b65c54c1b4b7.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/marcolipari/theoremicawithblockly1/.lake/packages/Cli/.lake/build/lib/lean:/Users/marcolipari/theoremicawithblockly1/.lake/packages/batteries/.lake/build/lib/lean:/Users/marcolipari/theoremicawithblockly1/.lake/packages/Qq/.lake/build/lib/lean:/Users/marcolipari/theoremicawithblockly1/.lake/packages/aesop/.lake/build/lib/lean:/Users/marcolipari/theoremicawithblockly1/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/marcolipari/theoremicawithblockly1/.lake/packages/importGraph/.lake/build/lib/lean:/Users/marcolipari/theoremicawithblockly1/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/marcolipari/theoremicawithblockly1/.lake/packages/plausible/.lake/build/lib/lean:/Users/marcolipari/theoremicawithblockly1/.lake/packages/mathlib/.lake/build/lib/lean:/Users/marcolipari/theoremicawithblockly1/.lake/build/lib/lean /Users/marcolipari/.elan/toolchains/leanprover--lean4---v4.27.0-rc1/bin/lean /Users/marcolipari/theoremicawithblockly1/Theoremica.lean -o /Users/marcolipari/theoremicawithblockly1/.lake/build/lib/lean/Theoremica.olean -i /Users/marcolipari/theoremicawithblockly1/.lake/build/lib/lean/Theoremica.ilean -c /Users/marcolipari/theoremicawithblockly1/.lake/build/ir/Theoremica.c --setup /Users/marcolipari/theoremicawithblockly1/.lake/build/ir/Theoremica.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["Theoremica:deps",
+   [["deps",
+     [["theoremica/Theoremica:extraDep",
+       [["@theoremica:extraDep", "00000000000006bb"]]],
+      ["imports",
+       [["Mathlib.Data.Real.Basic transitive imports (legacy)",
+         "f3510ea297431906"],
+        ["Mathlib.Data.Real.Basic:importAllArts", "f47e7b8a4ddd25ae"]]]]],
+    ["libs",
+     [["import dynlibs", "00000000000006bb"],
+      ["package external libraries", "00000000000006bb"],
+      ["module dynlibs", "00000000000006bb"],
+      ["module plugins", "00000000000006bb"]]]]],
+  ["Lean 4.27.0, commit 2fcce7258eeb6e324366bc25f9058293b04b7547",
+   "6f43b597efea5d4c"],
+  ["/Users/marcolipari/theoremicawithblockly1/Theoremica.lean",
+   "b3d5f577efb50346"],
+  ["options", "00000000000006bb"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "d7f441110502a816"}

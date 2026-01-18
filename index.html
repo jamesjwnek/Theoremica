@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theoremica - Visual Proof Builder</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        #header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        #mainContainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 64px);
+            padding: 40px 20px;
+        }
+
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .proof-button {
+            padding: 20px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            background-color: #3498db;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .proof-button:hover {
+            background-color: #2980b9;
+        }
+
+        .proof-button:active {
+            background-color: #21618c;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>THEOREMICA</h1>
+    </div>
+
+    <div id="mainContainer">
+        <div class="buttons-grid">
+            <button class="proof-button" onclick="openProof('Pythagorean Theorem')">
+                Pythagorean Theorem
+            </button>
+            <button class="proof-button" onclick="openProof('Infinitude of Primes')">
+                Infinitude of Primes
+            </button>
+            <button class="proof-button" onclick="openProof('Irrationality of Sqrt(2)')">
+                Irrationality of √2
+            </button>
+            <button class="proof-button" onclick="openProof('Fundamental Theorem of Algebra')">
+                Fundamental Theorem of Algebra
+            </button>
+            <button class="proof-button" onclick="openProof('Law of Cosines')">
+                Law of Cosines
+            </button>
+            <button class="proof-button" onclick="openProof('Golden Ratio')">
+                Golden Ratio
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function openProof(proofName) {
+            // Pass the proof name as a URL parameter
+            window.location.href = 'problem1.html?proof=' + encodeURIComponent(proofName);
+        }
+    </script>
+</body>
+</html>
