@@ -10,7 +10,6 @@ from requests.exceptions import HTTPError
 import subprocess
 import tempfile
 
-# Load environment variables
 load_dotenv()
 
 app = Flask(__name__)
@@ -41,8 +40,50 @@ def serve_file(path):
     return send_from_directory(project_dir, path)
 
 
+def _validate_proof(natural_language: str) -> tuple:
+    """
+    Mini compiler: validates proof structure before Gumloop processing.
+    Returns (is_valid, error_message)
+    """
+    if not natural_language or not natural_language.strip():
+        return False, "Proof text is empty."
+    
+    lines = [l.strip() for l in natural_language.split('\n') if l.strip()]
+    
+    # Check for basic structure: should have some proof steps
+    if len(lines) < 1:
+        return False, "Proof has no steps."
+    
+    # Check for required blocks: Assume/Suppose, Therefore, QED
+    has_assume = any('assume' in l.lower() or 'suppose' in l.lower() for l in lines)
+    has_therefore = any('therefore' in l.lower() or 'then' in l.lower() for l in lines)
+    has_qed = any('qed' in l.lower() for l in lines)
+    
+    if not has_assume:
+        return False, "Missing 'Assume' or 'Suppose' block for hypotheses."
+    if not has_therefore:
+        return False, "Missing 'Therefore' block for proof steps."
+    if not has_qed:
+        return False, "Missing 'QED' block to conclude the proof."
+    
+    # Check for obvious syntax issues
+    for line in lines:
+        # Warn about unmatched parentheses
+        open_parens = line.count('(')
+        close_parens = line.count(')')
+        if open_parens != close_parens:
+            return False, f"Unmatched parentheses in: {line[:50]}..."
+        
+    return True, None
+
+
 def _run_conversion(natural_language: str):
     """Run Gumloop conversion and Lean verification, returns (lean_code, is_valid)"""
+    # Validate proof structure first
+    is_valid_proof, error_msg = _validate_proof(natural_language)
+    if not is_valid_proof:
+        raise RuntimeError(f"Proof validation failed: {error_msg}")
+    
     api_key = os.getenv('GUMLOOP_API_KEY')
     user_id = os.getenv('GUMLOOP_USER_ID')
     flow_id = os.getenv('GUMLOOP_FLOW_ID')
@@ -121,7 +162,6 @@ def get_job(job_id: str):
         return jsonify(job), 200
 
 
-# SSE/WebSocket removed for simplicity
 
 
 def _clean_lean_code(lean_code):
