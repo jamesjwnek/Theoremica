@@ -3,100 +3,309 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Theoremica - Visual Proof Builder</title>
+    <title>Theoremica - Home</title>
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f5f5f5;
+            line-height: 1.6;
         }
 
         #header {
             background-color: #2c3e50;
             color: white;
-            padding: 15px 20px;
+            padding: 20px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
         h1 {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: 2px;
             margin: 0;
-            font-size: 24px;
         }
 
-        #mainContainer {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            min-height: calc(100vh - 64px);
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 40px 20px;
         }
 
-        .buttons-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            width: 100%;
+        .section {
+            background: white;
+            border-radius: 5px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
 
-        .proof-button {
-            padding: 20px 30px;
+        .section h2 {
+            color: #2c3e50;
+            font-size: 32px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #34495e;
+            padding-bottom: 10px;
+        }
+
+        .section p {
+            color: #555;
             font-size: 16px;
-            font-weight: bold;
-            border: none;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .section ul {
+            margin: 20px 0 20px 30px;
+            color: #555;
+            font-size: 16px;
+        }
+
+        .section li {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .course-card {
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
             border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            padding: 40px;
+            text-align: center;
             color: white;
-            text-decoration: none;
+            margin-top: 30px;
+            transition: all 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(52, 73, 94, 0.3);
+        }
+
+        .course-card h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .course-card p {
+            color: #ecf0f1;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .button {
             display: inline-block;
             background-color: #3498db;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+            margin: 10px;
         }
 
-        .proof-button:hover {
+        .button:hover {
             background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .proof-button:active {
-            background-color: #21618c;
+        .button:active {
+            transform: translateY(0);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            border-radius: 3px;
+        }
+
+        .feature-card h4 {
+            color: #2c3e50;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
     <div id="header">
-        <h1>THEOREMICA</h1>
+        <h1>📐 THEOREMICA</h1>
     </div>
 
-    <div id="mainContainer">
-        <div class="buttons-grid">
-            <button class="proof-button" onclick="openProof('Pythagorean Theorem')">
-                Pythagorean Theorem
-            </button>
-            <button class="proof-button" onclick="openProof('Infinitude of Primes')">
-                Infinitude of Primes
-            </button>
-            <button class="proof-button" onclick="openProof('Irrationality of Sqrt(2)')">
-                Irrationality of √2
-            </button>
-            <button class="proof-button" onclick="openProof('Fundamental Theorem of Algebra')">
-                Fundamental Theorem of Algebra
-            </button>
-            <button class="proof-button" onclick="openProof('Law of Cosines')">
-                Law of Cosines
-            </button>
-            <button class="proof-button" onclick="openProof('Golden Ratio')">
-                Golden Ratio
-            </button>
+    <div class="container">
+        <!-- About Section -->
+        <div class="section">
+            <h2>About Theoremica</h2>
+            <p>
+                Welcome to <strong>Theoremica</strong>, an innovative visual proof builder designed to make learning and practicing mathematical proofs more accessible, interactive, and engaging. Whether you're a student just beginning your journey into formal mathematics or an experienced mathematician looking to explore Lean 4 theorem proving, Theoremica provides the tools you need.
+            </p>
+            
+            <p>
+                Theoremica combines the power of visual block-based programming with formal mathematical notation to help you construct rigorous proofs. Instead of struggling with syntax or formal proof systems, you can focus on the logic and reasoning behind each step. Our intuitive drag-and-drop interface makes it easy to build complex proofs by connecting logical blocks together.
+            </p>
+
+            <h3 style="color: #2c3e50; margin-top: 25px; margin-bottom: 15px; font-size: 20px;">Why Choose Theoremica?</h3>
+            <div class="features">
+                <div class="feature-card">
+                    <h4>🎨 Visual Learning</h4>
+                    <p>Build proofs with intuitive drag-and-drop blocks instead of writing complex code</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📚 Comprehensive Content</h4>
+                    <p>Practice proofs from discrete mathematics, calculus, logic, and more</p>
+                </div>
+                <div class="feature-card">
+                    <h4>⚙️ Formal Verification</h4>
+                    <p>Generate Lean 4 code and verify your proofs formally</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🎓 Interactive Education</h4>
+                    <p>Learn mathematical reasoning through hands-on problem solving</p>
+                </div>
+            </div>
+
+            <p style="margin-top: 30px;">
+                Our platform is perfect for classroom instruction, independent study, or simply exploring the beauty of mathematical proofs. Start with our MATH 240 course content and begin your journey toward mastering discrete mathematics!
+            </p>
+        </div>
+
+        <!-- MATH 240 Course Section -->
+        <div class="section">
+            <h2>Discrete Mathematics - MATH 240</h2>
+            <p>
+                Explore key theorems and proofs from McGill University's MATH 240 (Discrete Mathematics) course. This comprehensive collection covers fundamental concepts in discrete mathematics including:
+            </p>
+            
+            <ul>
+                <li><strong>Proof Techniques</strong> - Mathematical induction, pigeonhole principle, and proof by contradiction</li>
+                <li><strong>Set Theory</strong> - Set operations, relations, and equivalence classes</li>
+                <li><strong>Logic</strong> - Propositional logic, Boolean algebra, and logical equivalences</li>
+                <li><strong>Combinatorics</strong> - Permutations, combinations, and counting principles</li>
+                <li><strong>Graph Theory</strong> - Basic graph concepts, paths, and the handshaking lemma</li>
+                <li><strong>Number Theory</strong> - Divisibility, modular arithmetic, and the Euclidean algorithm</li>
+            </ul>
+
+            <p style="margin-top: 25px;">
+                With 12 carefully selected theorems and proofs, this course provides a solid foundation in discrete mathematics. Each proof is accompanied by clear statements and interactive tools to help you understand and construct formal proofs.
+            </p>
+
+            <div class="course-card">
+                <h3>Ready to Learn?</h3>
+                <p>Start exploring the theorems and proofs from MATH 240. Build your proof skills one theorem at a time.</p>
+                <a href="math240.html" class="button">Enter MATH 240 Course</a>
+            </div>
+        </div>
+
+        <!-- Problem of the Day Section -->
+        <div class="section">
+            <h2>Challenge Yourself</h2>
+            <div class="course-card">
+                <h3>Problem of the Day</h3>
+                <p>Test your skills with a randomly selected problem from our extensive collection of 50 discrete mathematics challenges.</p>
+                <a href="#" class="button" onclick="openRandomProblem(); return false;">Start Problem of the Day</a>
+            </div>
         </div>
     </div>
 
     <script>
-        function openProof(proofName) {
-            // Pass the proof name as a URL parameter
-            window.location.href = 'problem1.html?proof=' + encodeURIComponent(proofName);
+        // 50 discrete mathematics problems for the Problem of the Day
+        const dailyProblems = [
+            { name: 'Prove A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)', statement: 'Prove the distributive property of sets: A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)' },
+            { name: 'Sum of First n Natural Numbers', statement: 'Prove that 1 + 2 + 3 + ... + n = n(n+1)/2 for all positive integers n' },
+            { name: 'Even Times Even is Even', statement: 'Prove that if a and b are even integers, then a × b is even' },
+            { name: 'Odd Plus Odd is Even', statement: 'Prove that the sum of two odd integers is always even' },
+            { name: 'Perfect Square Modulo 4', statement: 'Prove that any perfect square is congruent to 0 or 1 modulo 4' },
+            { name: 'Divisibility Transitivity', statement: 'Prove that if a divides b and b divides c, then a divides c' },
+            { name: 'GCD Lemma', statement: 'Prove that gcd(a, b) = gcd(a - b, b) for positive integers a > b' },
+            { name: 'Coprime Sum Property', statement: 'If gcd(a, b) = 1, prove that gcd(a, a+b) = 1' },
+            { name: 'Product of Consecutive Integers', statement: 'Prove that the product of any two consecutive integers is even' },
+            { name: 'Power Rule for Exponents', statement: 'Prove that (a^m)^n = a^(mn) for all positive integers a, m, n' },
+            { name: 'Permutation Formula', statement: 'Prove that P(n, k) = n!/(n-k)! represents the number of k-permutations of n elements' },
+            { name: 'Combination Symmetry', statement: 'Prove that C(n, k) = C(n, n-k) for all valid n and k' },
+            { name: 'Pascal Identity', statement: 'Prove that C(n, k) = C(n-1, k-1) + C(n-1, k)' },
+            { name: 'Binomial Sum', statement: 'Prove that Σ C(n, k) = 2^n for k from 0 to n' },
+            { name: 'Subset Counting', statement: 'Prove that a set with n elements has exactly 2^n subsets' },
+            { name: 'De Morgan Set Laws', statement: 'Prove De Morgan laws for sets: (A ∪ B)^c = A^c ∩ B^c' },
+            { name: 'Complement Properties', statement: 'Prove that A ∪ A^c = U and A ∩ A^c = ∅ for any set A' },
+            { name: 'Associative Union', statement: 'Prove that (A ∪ B) ∪ C = A ∪ (B ∪ C) for any sets' },
+            { name: 'Associative Intersection', statement: 'Prove that (A ∩ B) ∩ C = A ∩ (B ∩ C) for any sets' },
+            { name: 'Idempotent Union', statement: 'Prove that A ∪ A = A for any set A' },
+            { name: 'Idempotent Intersection', statement: 'Prove that A ∩ A = A for any set A' },
+            { name: 'Absorption Law Union', statement: 'Prove that A ∪ (A ∩ B) = A for any sets A and B' },
+            { name: 'Absorption Law Intersection', statement: 'Prove that A ∩ (A ∪ B) = A for any sets A and B' },
+            { name: 'Reflexive Relation', statement: 'Prove that the equality relation (=) is reflexive: for all a, a = a' },
+            { name: 'Symmetric Equality', statement: 'Prove that equality is symmetric: if a = b then b = a' },
+            { name: 'Transitive Equality', statement: 'Prove that equality is transitive: if a = b and b = c then a = c' },
+            { name: 'Handshake Lemma', statement: 'In any finite graph, the sum of all vertex degrees equals twice the number of edges' },
+            { name: 'Tree Edge Count', statement: 'Prove that a tree with n vertices has exactly n - 1 edges' },
+            { name: 'Connected Graph Minimum', statement: 'Prove that a connected graph with n vertices has at least n - 1 edges' },
+            { name: 'Cycle in Graph', statement: 'Prove that any graph with n vertices and n edges or more contains at least one cycle' },
+            { name: 'Pigeonhole Basic', statement: 'Prove that if n+1 objects are placed into n boxes, at least one box contains two objects' },
+            { name: 'Divisibility by 3', statement: 'Prove that a number is divisible by 3 if and only if the sum of its digits is divisible by 3' },
+            { name: 'Divisibility by 9', statement: 'Prove that a number is divisible by 9 if and only if the sum of its digits is divisible by 9' },
+            { name: 'Modular Arithmetic Addition', statement: 'If a ≡ b (mod m), prove that a + c ≡ b + c (mod m)' },
+            { name: 'Modular Arithmetic Multiplication', statement: 'If a ≡ b (mod m) and c ≡ d (mod m), prove that ac ≡ bd (mod m)' },
+            { name: 'Inverse Modulo Prime', statement: 'Prove that if p is prime and a is not divisible by p, then a has a multiplicative inverse modulo p' },
+            { name: 'Fermat Little Theorem', statement: 'If p is prime and gcd(a, p) = 1, prove that a^(p-1) ≡ 1 (mod p)' },
+            { name: 'Euclidean Algorithm Correctness', statement: 'Prove that gcd(a, b) = gcd(b, a mod b) for positive integers' },
+            { name: 'Extended Euclidean Algorithm', statement: 'Prove that gcd(a, b) can be expressed as ax + by for some integers x and y' },
+            { name: 'Unique Factorization', statement: 'Prove that every integer greater than 1 has a unique prime factorization' },
+            { name: 'Infinity of Primes', statement: 'Prove that there are infinitely many prime numbers' },
+            { name: 'Existence Contrapositive', statement: 'Prove by contrapositive: If n^2 is odd, then n is odd' },
+            { name: 'Sqrt 2 Irrational', statement: 'Prove by contradiction that √2 is irrational' },
+            { name: 'Logical Biconditional', statement: 'Prove that p ↔ q is equivalent to (p → q) ∧ (q → p)' },
+            { name: 'Logical Implication', statement: 'Prove that p → q is equivalent to ¬p ∨ q' },
+            { name: 'De Morgan Negation', statement: 'Prove De Morgan law for logic: ¬(p ∧ q) ≡ ¬p ∨ ¬q' },
+            { name: 'Double Negation', statement: 'Prove that ¬(¬p) ≡ p for any proposition p' },
+            { name: 'Tautology Check', statement: 'Prove that (p ∨ ¬p) is a tautology (always true)' },
+            { name: 'Contradiction Check', statement: 'Prove that (p ∧ ¬p) is a contradiction (always false)' },
+            { name: 'Logical Equivalence', statement: 'Prove that p ∨ (q ∧ r) ≡ (p ∨ q) ∧ (p ∨ r)' }
+        ];
+
+        function openRandomProblem() {
+            // Select a random problem
+            const randomIndex = Math.floor(Math.random() * dailyProblems.length);
+            const problem = dailyProblems[randomIndex];
+            
+            // Pass the problem as URL parameters
+            const params = new URLSearchParams({
+                proof: problem.name,
+                statement: problem.statement
+            });
+            
+            window.location.href = 'problem1.html?' + params.toString();
         }
     </script>
 </body>
