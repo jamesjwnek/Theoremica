@@ -32,7 +32,17 @@ def after_request(response):
 @app.route('/')
 def index():
     project_dir = os.path.dirname(os.path.abspath(__file__))
+    return send_from_directory(project_dir, 'index.html')
+
+@app.route('/problem1')
+def problem1():
+    project_dir = os.path.dirname(os.path.abspath(__file__))
     return send_from_directory(project_dir, 'problem1.html')
+
+@app.route('/problem2')
+def problem2():
+    project_dir = os.path.dirname(os.path.abspath(__file__))
+    return send_from_directory(project_dir, 'problem2.html')
 
 @app.route('/<path:path>')
 def serve_file(path):
