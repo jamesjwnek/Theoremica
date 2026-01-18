@@ -90,6 +90,9 @@ def _validate_proof(natural_language: str) -> tuple:
 def _run_conversion(natural_language: str):
     """Run Gumloop conversion and Lean verification, returns (lean_code, is_valid)"""
     # Validate proof structure first
+
+    print(f"Natural language proof input:", natural_language)
+
     is_valid_proof, error_msg = _validate_proof(natural_language)
     if not is_valid_proof:
         raise RuntimeError(f"Proof validation failed: {error_msg}")
@@ -106,6 +109,7 @@ def _run_conversion(natural_language: str):
     output = client.run_flow(flow_id=flow_id, inputs={'input': natural_language})
     lean_code = output.get('output')
     lean_code = _clean_lean_code(lean_code)
+
 
     # Verify Lean code
     is_valid = _verify_lean_code(lean_code)

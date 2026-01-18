@@ -53,6 +53,21 @@ Blockly.Blocks["proof_qed"] = {
   },
 };
 
+/**
+ * Custom Text block (simple version)
+ */
+Blockly.Blocks["custom_text"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldTextInput("custom text here"), "TEXT");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("Add custom text");
+    this.setHelpUrl("");
+  },
+};
+
 // ============================================================================
 // LOGICAL SYMBOLS BLOCKS
 // ============================================================================
@@ -199,6 +214,32 @@ Blockly.Blocks["logic_neq"] = {
     this.setNextStatement(true, null);
     this.setColour(230);
     this.setTooltip("Inequality: a ≠ b");
+  },
+};
+
+/**
+ * True (⊤)
+ */
+Blockly.Blocks["logic_true"] = {
+  init: function () {
+    this.appendDummyInput().appendField("⊤ (True)");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("Truth: ⊤");
+  },
+};
+
+/**
+ * False (⊥)
+ */
+Blockly.Blocks["logic_false"] = {
+  init: function () {
+    this.appendDummyInput().appendField("⊥ (False)");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("Falsehood: ⊥");
   },
 };
 
@@ -400,6 +441,101 @@ Blockly.Blocks["set_function"] = {
   },
 };
 
+/**
+ * Relation
+ */
+Blockly.Blocks["set_relation"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldTextInput("a"), "LEFT")
+      .appendField(new Blockly.FieldTextInput("R"), "RELATION")
+      .appendField(new Blockly.FieldTextInput("b"), "RIGHT");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("Binary relation: a R b");
+  },
+};
+
+/**
+ * Cartesian Product (×)
+ */
+Blockly.Blocks["set_cartesian"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldTextInput("A"), "LEFT")
+      .appendField("×")
+      .appendField(new Blockly.FieldTextInput("B"), "RIGHT");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("Cartesian product: A × B");
+  },
+};
+
+/**
+ * Power Set (𝒫)
+ */
+Blockly.Blocks["set_powerset"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("𝒫(")
+      .appendField(new Blockly.FieldTextInput("A"), "SET")
+      .appendField(")");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("Power set: 𝒫(A)");
+  },
+};
+
+/**
+ * Cardinality (|A|)
+ */
+Blockly.Blocks["set_cardinality"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("|")
+      .appendField(new Blockly.FieldTextInput("A"), "SET")
+      .appendField("|");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("Cardinality: |A|");
+  },
+};
+
+/**
+ * Complement (Aᶜ)
+ */
+Blockly.Blocks["set_complement"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldTextInput("A"), "SET")
+      .appendField("ᶜ");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("Set complement: Aᶜ");
+  },
+};
+
+/**
+ * Function Composition (∘)
+ */
+Blockly.Blocks["set_compose"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldTextInput("f"), "LEFT")
+      .appendField("∘")
+      .appendField(new Blockly.FieldTextInput("g"), "RIGHT");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("Function composition: f ∘ g");
+  },
+};
+
 // ============================================================================
 // ARITHMETIC & NUMBER THEORY SYMBOLS BLOCKS
 // ============================================================================
@@ -580,6 +716,139 @@ Blockly.Blocks["arith_gt"] = {
     this.setNextStatement(true, null);
     this.setColour(290);
     this.setTooltip("Greater than: a > b");
+  },
+};
+
+/**
+ * Greatest Common Divisor (gcd)
+ */
+Blockly.Blocks["arith_gcd"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("gcd(")
+      .appendField(new Blockly.FieldTextInput("a"), "LEFT")
+      .appendField(",")
+      .appendField(new Blockly.FieldTextInput("b"), "RIGHT")
+      .appendField(")");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Greatest common divisor: gcd(a, b)");
+  },
+};
+
+/**
+ * Least Common Multiple (lcm)
+ */
+Blockly.Blocks["arith_lcm"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("lcm(")
+      .appendField(new Blockly.FieldTextInput("a"), "LEFT")
+      .appendField(",")
+      .appendField(new Blockly.FieldTextInput("b"), "RIGHT")
+      .appendField(")");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Least common multiple: lcm(a, b)");
+  },
+};
+
+/**
+ * Factorial (!)
+ */
+Blockly.Blocks["arith_factorial"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldTextInput("n"), "VALUE")
+      .appendField("!");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Factorial: n!");
+  },
+};
+
+/**
+ * Floor (⌊x⌋)
+ */
+Blockly.Blocks["arith_floor"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("⌊")
+      .appendField(new Blockly.FieldTextInput("x"), "VALUE")
+      .appendField("⌋");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Floor function: ⌊x⌋");
+  },
+};
+
+/**
+ * Ceiling (⌈x⌉)
+ */
+Blockly.Blocks["arith_ceiling"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("⌈")
+      .appendField(new Blockly.FieldTextInput("x"), "VALUE")
+      .appendField("⌉");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Ceiling function: ⌈x⌉");
+  },
+};
+
+/**
+ * Absolute Value (|x|)
+ */
+Blockly.Blocks["arith_abs"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("|")
+      .appendField(new Blockly.FieldTextInput("x"), "VALUE")
+      .appendField("|");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Absolute value: |x|");
+  },
+};
+
+/**
+ * Summation (∑)
+ */
+Blockly.Blocks["arith_sum"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("∑")
+      .appendField(new Blockly.FieldTextInput("i"), "VAR")
+      .appendField(",")
+      .appendField(new Blockly.FieldTextInput("expr"), "EXPR");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Summation: ∑ i, expr");
+  },
+};
+
+/**
+ * Product (∏)
+ */
+Blockly.Blocks["arith_prod"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("∏")
+      .appendField(new Blockly.FieldTextInput("i"), "VAR")
+      .appendField(",")
+      .appendField(new Blockly.FieldTextInput("expr"), "EXPR");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Product: ∏ i, expr");
   },
 };
 
@@ -782,5 +1051,902 @@ Blockly.Blocks["tactic_apply"] = {
     this.setNextStatement(true, null);
     this.setColour(120);
     this.setTooltip("Apply a theorem");
+  },
+};
+
+// ============================================================================
+// CONTAINER VERSIONS (DUPLICATE BLOCKS WITH NESTED CAPABILITY)
+// ============================================================================
+
+/**
+ * Assume block (container version)
+ */
+Blockly.Blocks["proof_assume_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("Assume:");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("State an assumption (with nested blocks)");
+    this.setHelpUrl("");
+  },
+};
+
+/**
+ * Therefore block (container version)
+ */
+Blockly.Blocks["proof_therefore_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("Therefore:");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+    this.setTooltip("State a logical conclusion (with nested blocks)");
+    this.setHelpUrl("");
+  },
+};
+
+/**
+ * Universal Quantifier (∀) - container version
+ */
+Blockly.Blocks["logic_forall_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("∀");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("Universal quantifier: ∀ x, P(x) (with nested blocks)");
+  },
+};
+
+/**
+ * Existential Quantifier (∃) - container version
+ */
+Blockly.Blocks["logic_exists_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("∃");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("Existential quantifier: ∃ x, P(x) (with nested blocks)");
+  },
+};
+
+/**
+ * Implication (→) - container version
+ */
+Blockly.Blocks["logic_implies_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("→");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("Implication: P → Q (with nested blocks)");
+  },
+};
+
+/**
+ * Biconditional (↔) - container version
+ */
+Blockly.Blocks["logic_iff_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("↔");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("Biconditional: P ↔ Q (with nested blocks)");
+  },
+};
+
+/**
+ * Negation (¬) - container version
+ */
+Blockly.Blocks["logic_not_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("¬");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("Negation: ¬P (with nested blocks)");
+  },
+};
+
+/**
+ * Conjunction (∧) - container version
+ */
+Blockly.Blocks["logic_and_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("∧");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("Conjunction: P ∧ Q (with nested blocks)");
+  },
+};
+
+/**
+ * Disjunction (∨) - container version
+ */
+Blockly.Blocks["logic_or_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("∨");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("Disjunction: P ∨ Q (with nested blocks)");
+  },
+};
+
+/**
+ * Equality (=) - container version
+ */
+Blockly.Blocks["logic_eq_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("=");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("Equality: a = b (with nested blocks)");
+  },
+};
+
+/**
+ * Inequality (≠) - container version
+ */
+Blockly.Blocks["logic_neq_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("≠");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("Inequality: a ≠ b (with nested blocks)");
+  },
+};
+
+/**
+ * True - container version
+ */
+Blockly.Blocks["logic_true_container"] = {
+  init: function () {
+    this.appendDummyInput().appendField("⊤");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("Truth: ⊤ (with nested blocks)");
+  },
+};
+
+/**
+ * False - container version
+ */
+Blockly.Blocks["logic_false_container"] = {
+  init: function () {
+    this.appendDummyInput().appendField("⊥");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("Falsehood: ⊥ (with nested blocks)");
+  },
+};
+
+/**
+ * Set Membership (∈) - container version
+ */
+Blockly.Blocks["set_elem_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("∈");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("Set membership: x ∈ S (with nested blocks)");
+  },
+};
+
+/**
+ * Set Non-membership (∉) - container version
+ */
+Blockly.Blocks["set_not_elem_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("∉");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("Set non-membership: x ∉ S (with nested blocks)");
+  },
+};
+
+/**
+ * Subset (⊆) - container version
+ */
+Blockly.Blocks["set_subset_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("⊆");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("Subset: A ⊆ B (with nested blocks)");
+  },
+};
+
+/**
+ * Proper Subset (⊂) - container version
+ */
+Blockly.Blocks["set_proper_subset_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("⊂");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("Proper subset: A ⊂ B (with nested blocks)");
+  },
+};
+
+/**
+ * Union (∪) - container version
+ */
+Blockly.Blocks["set_union_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("∪");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("Union: A ∪ B (with nested blocks)");
+  },
+};
+
+/**
+ * Intersection (∩) - container version
+ */
+Blockly.Blocks["set_intersection_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("∩");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("Intersection: A ∩ B (with nested blocks)");
+  },
+};
+
+/**
+ * Set Difference (\) - container version
+ */
+Blockly.Blocks["set_difference_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("\\");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("Set difference: A \\ B (with nested blocks)");
+  },
+};
+
+/**
+ * Empty Set (∅) - container version
+ */
+Blockly.Blocks["set_empty_container"] = {
+  init: function () {
+    this.appendDummyInput().appendField("∅");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("Empty set: ∅ (with nested blocks)");
+  },
+};
+
+/**
+ * Function Application f(x) - container version
+ */
+Blockly.Blocks["set_function_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("f(x)");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("Function application: f(x) (with nested blocks)");
+  },
+};
+
+/**
+ * Relation - container version
+ */
+Blockly.Blocks["set_relation_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("R");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("Binary relation: a R b (with nested blocks)");
+  },
+};
+
+/**
+ * Cartesian Product - container version
+ */
+Blockly.Blocks["set_cartesian_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("×");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("Cartesian product: A × B (with nested blocks)");
+  },
+};
+
+/**
+ * Power Set - container version
+ */
+Blockly.Blocks["set_powerset_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("𝒫");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("Power set: 𝒫(A) (with nested blocks)");
+  },
+};
+
+/**
+ * Cardinality - container version
+ */
+Blockly.Blocks["set_cardinality_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("| |");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("Cardinality: |A| (with nested blocks)");
+  },
+};
+
+/**
+ * Complement - container version
+ */
+Blockly.Blocks["set_complement_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("ᶜ");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("Set complement: Aᶜ (with nested blocks)");
+  },
+};
+
+/**
+ * Function Composition - container version
+ */
+Blockly.Blocks["set_compose_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("∘");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(45);
+    this.setTooltip("Function composition: f ∘ g (with nested blocks)");
+  },
+};
+
+/**
+ * Addition (+) - container version
+ */
+Blockly.Blocks["arith_add_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("+");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Addition: a + b (with nested blocks)");
+  },
+};
+
+/**
+ * Subtraction (-) - container version
+ */
+Blockly.Blocks["arith_sub_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("-");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Subtraction: a - b (with nested blocks)");
+  },
+};
+
+/**
+ * Multiplication (*) - container version
+ */
+Blockly.Blocks["arith_mul_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("*");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Multiplication: a * b (with nested blocks)");
+  },
+};
+
+/**
+ * Division (/) - container version
+ */
+Blockly.Blocks["arith_div_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("/");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Division: a / b (with nested blocks)");
+  },
+};
+
+/**
+ * Exponentiation (^) - container version
+ */
+Blockly.Blocks["arith_pow_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("^");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Exponentiation: a ^ n (with nested blocks)");
+  },
+};
+
+/**
+ * Divides (∣) - container version
+ */
+Blockly.Blocks["arith_divides_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("∣");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Divides: a ∣ b (with nested blocks)");
+  },
+};
+
+/**
+ * Modular Congruence (≡) - container version
+ */
+Blockly.Blocks["arith_mod_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("≡ [MOD]");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Modular congruence: a ≡ b [MOD n] (with nested blocks)");
+  },
+};
+
+/**
+ * Less than or equal (≤) - container version
+ */
+Blockly.Blocks["arith_le_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("≤");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Less than or equal: a ≤ b (with nested blocks)");
+  },
+};
+
+/**
+ * Less than (<) - container version
+ */
+Blockly.Blocks["arith_lt_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("<");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Less than: a < b (with nested blocks)");
+  },
+};
+
+/**
+ * Greater than or equal (≥) - container version
+ */
+Blockly.Blocks["arith_ge_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("≥");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Greater than or equal: a ≥ b (with nested blocks)");
+  },
+};
+
+/**
+ * Greater than (>) - container version
+ */
+Blockly.Blocks["arith_gt_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField(">");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Greater than: a > b (with nested blocks)");
+  },
+};
+
+/**
+ * Greatest Common Divisor (gcd) - container version
+ */
+Blockly.Blocks["arith_gcd_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("gcd");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Greatest common divisor: gcd(a, b) (with nested blocks)");
+  },
+};
+
+/**
+ * Least Common Multiple (lcm) - container version
+ */
+Blockly.Blocks["arith_lcm_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("lcm");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Least common multiple: lcm(a, b) (with nested blocks)");
+  },
+};
+
+/**
+ * Factorial (!) - container version
+ */
+Blockly.Blocks["arith_factorial_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("!");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Factorial: n! (with nested blocks)");
+  },
+};
+
+/**
+ * Floor - container version
+ */
+Blockly.Blocks["arith_floor_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("⌊⌋");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Floor function: ⌊x⌋ (with nested blocks)");
+  },
+};
+
+/**
+ * Ceiling - container version
+ */
+Blockly.Blocks["arith_ceiling_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("⌈⌉");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Ceiling function: ⌈x⌉ (with nested blocks)");
+  },
+};
+
+/**
+ * Absolute Value - container version
+ */
+Blockly.Blocks["arith_abs_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("| |");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Absolute value: |x| (with nested blocks)");
+  },
+};
+
+/**
+ * Summation (∑) - container version
+ */
+Blockly.Blocks["arith_sum_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("∑");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Summation: ∑ i, expr (with nested blocks)");
+  },
+};
+
+/**
+ * Product (∏) - container version
+ */
+Blockly.Blocks["arith_prod_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("∏");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip("Product: ∏ i, expr (with nested blocks)");
+  },
+};
+
+/**
+ * Assume block (for intro tactic) - container version
+ */
+Blockly.Blocks["tactic_assume_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("Assume");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+    this.setTooltip("Assume a hypothesis (intro tactic) (with nested blocks)");
+  },
+};
+
+/**
+ * Suppose block (for negation proofs) - container version
+ */
+Blockly.Blocks["tactic_suppose_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("Suppose");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+    this.setTooltip("Suppose a negation hypothesis (intro h) (with nested blocks)");
+  },
+};
+
+/**
+ * Case analysis block - container version
+ */
+Blockly.Blocks["tactic_case_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("Case");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+    this.setTooltip("Case analysis (case zero/step/left/right) (with nested blocks)");
+  },
+};
+
+/**
+ * Then block (chaining reasoning) - container version
+ */
+Blockly.Blocks["tactic_then_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("Then");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+    this.setTooltip("Chain reasoning steps (with nested blocks)");
+  },
+};
+
+/**
+ * Let binding block - container version
+ */
+Blockly.Blocks["tactic_let_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("Let");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+    this.setTooltip("Let binding: let x := expr (with nested blocks)");
+  },
+};
+
+/**
+ * Use block - container version
+ */
+Blockly.Blocks["tactic_use_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("Use");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+    this.setTooltip("Use a witness for ∃ (use witness) (with nested blocks)");
+  },
+};
+
+/**
+ * Split block (for ∧ or ↔) - container version
+ */
+Blockly.Blocks["tactic_split_container"] = {
+  init: function () {
+    this.appendDummyInput().appendField("Split");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+    this.setTooltip("Split conjunction or biconditional (with nested blocks)");
+  },
+};
+
+/**
+ * Left block (for ∨) - container version
+ */
+Blockly.Blocks["tactic_left_container"] = {
+  init: function () {
+    this.appendDummyInput().appendField("Left");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+    this.setTooltip("Choose left branch of disjunction (with nested blocks)");
+  },
+};
+
+/**
+ * Right block (for ∨) - container version
+ */
+Blockly.Blocks["tactic_right_container"] = {
+  init: function () {
+    this.appendDummyInput().appendField("Right");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+    this.setTooltip("Choose right branch of disjunction (with nested blocks)");
+  },
+};
+
+/**
+ * Simplify block - container version
+ */
+Blockly.Blocks["tactic_simp_container"] = {
+  init: function () {
+    this.appendDummyInput().appendField("Simplify");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+    this.setTooltip("Simplify the goal (simp) (with nested blocks)");
+  },
+};
+
+/**
+ * Reflexivity block - container version
+ */
+Blockly.Blocks["tactic_rfl_container"] = {
+  init: function () {
+    this.appendDummyInput().appendField("Reflexivity");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+    this.setTooltip("Use reflexivity for equality (rfl) (with nested blocks)");
+  },
+};
+
+/**
+ * Contradiction block - container version
+ */
+Blockly.Blocks["tactic_contradiction_container"] = {
+  init: function () {
+    this.appendDummyInput().appendField("Contradiction");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+    this.setTooltip("Derive a contradiction (with nested blocks)");
+  },
+};
+
+/**
+ * Apply theorem block - container version
+ */
+Blockly.Blocks["tactic_apply_container"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("Apply");
+    this.appendStatementInput("NESTED");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+    this.setTooltip("Apply a theorem (with nested blocks)");
   },
 };

@@ -214,6 +214,7 @@
         /**
          * Define the toolbox (palette of available blocks)
          * Users can drag these blocks into the workspace
+         * Each block has a simple version and a container version with nesting capability
          */
         const toolbox = {
             "kind": "categoryToolbox",
@@ -224,12 +225,40 @@
                     "colour": "230",
                     "contents": [
                         {
+                            "kind": "label",
+                            "text": "Assume"
+                        },
+                        {
                             "kind": "block",
                             "type": "proof_assume"
                         },
                         {
                             "kind": "block",
+                            "type": "proof_assume_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Therefore"
+                        },
+                        {
+                            "kind": "block",
                             "type": "proof_therefore"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "proof_therefore_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Custom Text"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "custom_text"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "End Proof"
                         },
                         {
                             "kind": "block",
@@ -243,8 +272,20 @@
                     "colour": "230",
                     "contents": [
                         {
+                            "kind": "label",
+                            "text": "Universal (∀)"
+                        },
+                        {
                             "kind": "block",
                             "type": "logic_forall"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "logic_forall_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Existential (∃)"
                         },
                         {
                             "kind": "block",
@@ -252,7 +293,23 @@
                         },
                         {
                             "kind": "block",
+                            "type": "logic_exists_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Implication (→)"
+                        },
+                        {
+                            "kind": "block",
                             "type": "logic_implies"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "logic_implies_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Biconditional (↔)"
                         },
                         {
                             "kind": "block",
@@ -260,7 +317,23 @@
                         },
                         {
                             "kind": "block",
+                            "type": "logic_iff_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Negation (¬)"
+                        },
+                        {
+                            "kind": "block",
                             "type": "logic_not"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "logic_not_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Conjunction (∧)"
                         },
                         {
                             "kind": "block",
@@ -268,7 +341,23 @@
                         },
                         {
                             "kind": "block",
+                            "type": "logic_and_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Disjunction (∨)"
+                        },
+                        {
+                            "kind": "block",
                             "type": "logic_or"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "logic_or_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Equality (=)"
                         },
                         {
                             "kind": "block",
@@ -276,7 +365,39 @@
                         },
                         {
                             "kind": "block",
+                            "type": "logic_eq_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Inequality (≠)"
+                        },
+                        {
+                            "kind": "block",
                             "type": "logic_neq"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "logic_neq_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Truth Values"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "logic_true"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "logic_true_container"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "logic_false"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "logic_false_container"
                         }
                     ]
                 },
@@ -286,8 +407,20 @@
                     "colour": "45",
                     "contents": [
                         {
+                            "kind": "label",
+                            "text": "Membership (∈)"
+                        },
+                        {
                             "kind": "block",
                             "type": "set_elem"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "set_elem_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Non-membership (∉)"
                         },
                         {
                             "kind": "block",
@@ -295,7 +428,23 @@
                         },
                         {
                             "kind": "block",
+                            "type": "set_not_elem_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Subset (⊆)"
+                        },
+                        {
+                            "kind": "block",
                             "type": "set_subset"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "set_subset_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Proper Subset (⊂)"
                         },
                         {
                             "kind": "block",
@@ -303,7 +452,23 @@
                         },
                         {
                             "kind": "block",
+                            "type": "set_proper_subset_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Union (∪)"
+                        },
+                        {
+                            "kind": "block",
                             "type": "set_union"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "set_union_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Intersection (∩)"
                         },
                         {
                             "kind": "block",
@@ -311,11 +476,31 @@
                         },
                         {
                             "kind": "block",
+                            "type": "set_intersection_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Difference (\\)"
+                        },
+                        {
+                            "kind": "block",
                             "type": "set_difference"
                         },
                         {
                             "kind": "block",
+                            "type": "set_difference_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Empty Set (∅)"
+                        },
+                        {
+                            "kind": "block",
                             "type": "set_empty"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "set_empty_container"
                         },
                         {
                             "kind": "label",
@@ -338,8 +523,88 @@
                             "type": "set_reals"
                         },
                         {
+                            "kind": "label",
+                            "text": "Functions"
+                        },
+                        {
                             "kind": "block",
                             "type": "set_function"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "set_function_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Relation"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "set_relation"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "set_relation_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Cartesian Product"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "set_cartesian"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "set_cartesian_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Power Set"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "set_powerset"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "set_powerset_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Cardinality"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "set_cardinality"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "set_cardinality_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Complement"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "set_complement"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "set_complement_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Function Composition"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "set_compose"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "set_compose_container"
                         }
                     ]
                 },
@@ -349,8 +614,20 @@
                     "colour": "290",
                     "contents": [
                         {
+                            "kind": "label",
+                            "text": "Addition (+)"
+                        },
+                        {
                             "kind": "block",
                             "type": "arith_add"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "arith_add_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Subtraction (-)"
                         },
                         {
                             "kind": "block",
@@ -358,7 +635,23 @@
                         },
                         {
                             "kind": "block",
+                            "type": "arith_sub_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Multiplication (*)"
+                        },
+                        {
+                            "kind": "block",
                             "type": "arith_mul"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "arith_mul_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Division (/)"
                         },
                         {
                             "kind": "block",
@@ -366,7 +659,19 @@
                         },
                         {
                             "kind": "block",
+                            "type": "arith_div_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Exponentiation (^)"
+                        },
+                        {
+                            "kind": "block",
                             "type": "arith_pow"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "arith_pow_container"
                         },
                         {
                             "kind": "label",
@@ -378,7 +683,87 @@
                         },
                         {
                             "kind": "block",
+                            "type": "arith_divides_container"
+                        },
+                        {
+                            "kind": "block",
                             "type": "arith_mod"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "arith_mod_container"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "arith_gcd"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "arith_gcd_container"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "arith_lcm"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "arith_lcm_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Functions"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "arith_factorial"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "arith_factorial_container"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "arith_floor"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "arith_floor_container"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "arith_ceiling"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "arith_ceiling_container"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "arith_abs"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "arith_abs_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Series"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "arith_sum"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "arith_sum_container"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "arith_prod"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "arith_prod_container"
                         },
                         {
                             "kind": "label",
@@ -390,7 +775,15 @@
                         },
                         {
                             "kind": "block",
+                            "type": "arith_le_container"
+                        },
+                        {
+                            "kind": "block",
                             "type": "arith_lt"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "arith_lt_container"
                         },
                         {
                             "kind": "block",
@@ -398,7 +791,15 @@
                         },
                         {
                             "kind": "block",
+                            "type": "arith_ge_container"
+                        },
+                        {
+                            "kind": "block",
                             "type": "arith_gt"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "arith_gt_container"
                         }
                     ]
                 },
@@ -408,12 +809,28 @@
                     "colour": "120",
                     "contents": [
                         {
+                            "kind": "label",
+                            "text": "Assume"
+                        },
+                        {
                             "kind": "block",
                             "type": "tactic_assume"
                         },
                         {
                             "kind": "block",
+                            "type": "tactic_assume_container"
+                        },
+                        {
+                            "kind": "label",
+                            "text": "Suppose"
+                        },
+                        {
+                            "kind": "block",
                             "type": "tactic_suppose"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "tactic_suppose_container"
                         },
                         {
                             "kind": "label",
@@ -422,6 +839,10 @@
                         {
                             "kind": "block",
                             "type": "tactic_case"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "tactic_case_container"
                         },
                         {
                             "kind": "label",
@@ -433,11 +854,23 @@
                         },
                         {
                             "kind": "block",
+                            "type": "tactic_then_container"
+                        },
+                        {
+                            "kind": "block",
                             "type": "tactic_let"
                         },
                         {
                             "kind": "block",
+                            "type": "tactic_let_container"
+                        },
+                        {
+                            "kind": "block",
                             "type": "tactic_use"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "tactic_use_container"
                         },
                         {
                             "kind": "label",
@@ -449,11 +882,23 @@
                         },
                         {
                             "kind": "block",
+                            "type": "tactic_split_container"
+                        },
+                        {
+                            "kind": "block",
                             "type": "tactic_left"
                         },
                         {
                             "kind": "block",
+                            "type": "tactic_left_container"
+                        },
+                        {
+                            "kind": "block",
                             "type": "tactic_right"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "tactic_right_container"
                         },
                         {
                             "kind": "label",
@@ -465,7 +910,15 @@
                         },
                         {
                             "kind": "block",
+                            "type": "tactic_simp_container"
+                        },
+                        {
+                            "kind": "block",
                             "type": "tactic_rfl"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "tactic_rfl_container"
                         },
                         {
                             "kind": "block",
@@ -473,7 +926,15 @@
                         },
                         {
                             "kind": "block",
+                            "type": "tactic_contradiction_container"
+                        },
+                        {
+                            "kind": "block",
                             "type": "tactic_apply"
+                        },
+                        {
+                            "kind": "block",
+                            "type": "tactic_apply_container"
                         }
                     ]
                 }
@@ -635,79 +1096,128 @@
                     if (blockType === 'proof_assume') {
                         stepInfo.data.statement = currentBlock.getFieldValue('STATEMENT');
                         stepInfo.label = 'Assume';
+                    } else if (blockType === 'proof_assume_container') {
+                        stepInfo.label = 'Assume';
                     } else if (blockType === 'proof_therefore') {
                         stepInfo.data.conclusion = currentBlock.getFieldValue('CONCLUSION');
                         stepInfo.label = 'Therefore';
+                    } else if (blockType === 'proof_therefore_container') {
+                        stepInfo.label = 'Therefore';
                     } else if (blockType === 'proof_qed') {
                         stepInfo.label = 'QED';
+                    } else if (blockType === 'custom_text') {
+                        stepInfo.data.text = currentBlock.getFieldValue('TEXT');
+                        stepInfo.label = 'Custom';
                     }
                     // Logical Symbols
                     else if (blockType === 'logic_forall') {
                         stepInfo.data.var = currentBlock.getFieldValue('VAR');
                         stepInfo.data.expr = currentBlock.getFieldValue('EXPR');
                         stepInfo.label = '∀';
+                    } else if (blockType === 'logic_forall_container') {
+                        stepInfo.label = '∀';
                     } else if (blockType === 'logic_exists') {
                         stepInfo.data.var = currentBlock.getFieldValue('VAR');
                         stepInfo.data.expr = currentBlock.getFieldValue('EXPR');
+                        stepInfo.label = '∃';
+                    } else if (blockType === 'logic_exists_container') {
                         stepInfo.label = '∃';
                     } else if (blockType === 'logic_implies') {
                         stepInfo.data.left = currentBlock.getFieldValue('LEFT');
                         stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
                         stepInfo.label = '→';
+                    } else if (blockType === 'logic_implies_container') {
+                        stepInfo.label = '→';
                     } else if (blockType === 'logic_iff') {
                         stepInfo.data.left = currentBlock.getFieldValue('LEFT');
                         stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
                         stepInfo.label = '↔';
+                    } else if (blockType === 'logic_iff_container') {
+                        stepInfo.label = '↔';
                     } else if (blockType === 'logic_not') {
                         stepInfo.data.expr = currentBlock.getFieldValue('EXPR');
+                        stepInfo.label = '¬';
+                    } else if (blockType === 'logic_not_container') {
                         stepInfo.label = '¬';
                     } else if (blockType === 'logic_and') {
                         stepInfo.data.left = currentBlock.getFieldValue('LEFT');
                         stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
                         stepInfo.label = '∧';
+                    } else if (blockType === 'logic_and_container') {
+                        stepInfo.label = '∧';
                     } else if (blockType === 'logic_or') {
                         stepInfo.data.left = currentBlock.getFieldValue('LEFT');
                         stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
+                        stepInfo.label = '∨';
+                    } else if (blockType === 'logic_or_container') {
                         stepInfo.label = '∨';
                     } else if (blockType === 'logic_eq') {
                         stepInfo.data.left = currentBlock.getFieldValue('LEFT');
                         stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
                         stepInfo.label = '=';
+                    } else if (blockType === 'logic_eq_container') {
+                        stepInfo.label = '=';
                     } else if (blockType === 'logic_neq') {
                         stepInfo.data.left = currentBlock.getFieldValue('LEFT');
                         stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
                         stepInfo.label = '≠';
+                    } else if (blockType === 'logic_neq_container') {
+                        stepInfo.label = '≠';
+                    } else if (blockType === 'logic_true') {
+                        stepInfo.label = '⊤';
+                    } else if (blockType === 'logic_true_container') {
+                        stepInfo.label = '⊤';
+                    } else if (blockType === 'logic_false') {
+                        stepInfo.label = '⊥';
+                    } else if (blockType === 'logic_false_container') {
+                        stepInfo.label = '⊥';
                     }
                     // Set & Relation Symbols
                     else if (blockType === 'set_elem') {
                         stepInfo.data.elem = currentBlock.getFieldValue('ELEM');
                         stepInfo.data.set = currentBlock.getFieldValue('SET');
                         stepInfo.label = '∈';
+                    } else if (blockType === 'set_elem_container') {
+                        stepInfo.label = '∈';
                     } else if (blockType === 'set_not_elem') {
                         stepInfo.data.elem = currentBlock.getFieldValue('ELEM');
                         stepInfo.data.set = currentBlock.getFieldValue('SET');
+                        stepInfo.label = '∉';
+                    } else if (blockType === 'set_not_elem_container') {
                         stepInfo.label = '∉';
                     } else if (blockType === 'set_subset') {
                         stepInfo.data.left = currentBlock.getFieldValue('LEFT');
                         stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
                         stepInfo.label = '⊆';
+                    } else if (blockType === 'set_subset_container') {
+                        stepInfo.label = '⊆';
                     } else if (blockType === 'set_proper_subset') {
                         stepInfo.data.left = currentBlock.getFieldValue('LEFT');
                         stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
+                        stepInfo.label = '⊂';
+                    } else if (blockType === 'set_proper_subset_container') {
                         stepInfo.label = '⊂';
                     } else if (blockType === 'set_union') {
                         stepInfo.data.left = currentBlock.getFieldValue('LEFT');
                         stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
                         stepInfo.label = '∪';
+                    } else if (blockType === 'set_union_container') {
+                        stepInfo.label = '∪';
                     } else if (blockType === 'set_intersection') {
                         stepInfo.data.left = currentBlock.getFieldValue('LEFT');
                         stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
+                        stepInfo.label = '∩';
+                    } else if (blockType === 'set_intersection_container') {
                         stepInfo.label = '∩';
                     } else if (blockType === 'set_difference') {
                         stepInfo.data.left = currentBlock.getFieldValue('LEFT');
                         stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
                         stepInfo.label = '\\';
+                    } else if (blockType === 'set_difference_container') {
+                        stepInfo.label = '\\';
                     } else if (blockType === 'set_empty') {
+                        stepInfo.label = '∅';
+                    } else if (blockType === 'set_empty_container') {
                         stepInfo.label = '∅';
                     } else if (blockType === 'set_naturals') {
                         stepInfo.label = 'ℕ';
@@ -721,90 +1231,218 @@
                         stepInfo.data.func = currentBlock.getFieldValue('FUNC');
                         stepInfo.data.arg = currentBlock.getFieldValue('ARG');
                         stepInfo.label = 'function';
+                    } else if (blockType === 'set_function_container') {
+                        stepInfo.label = 'function';
+                    } else if (blockType === 'set_relation') {
+                        stepInfo.data.left = currentBlock.getFieldValue('LEFT');
+                        stepInfo.data.relation = currentBlock.getFieldValue('RELATION');
+                        stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
+                        stepInfo.label = 'relation';
+                    } else if (blockType === 'set_relation_container') {
+                        stepInfo.label = 'relation';
+                    } else if (blockType === 'set_cartesian') {
+                        stepInfo.data.left = currentBlock.getFieldValue('LEFT');
+                        stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
+                        stepInfo.label = '×';
+                    } else if (blockType === 'set_cartesian_container') {
+                        stepInfo.label = '×';
+                    } else if (blockType === 'set_powerset') {
+                        stepInfo.data.set = currentBlock.getFieldValue('SET');
+                        stepInfo.label = '𝒫';
+                    } else if (blockType === 'set_powerset_container') {
+                        stepInfo.label = '𝒫';
+                    } else if (blockType === 'set_cardinality') {
+                        stepInfo.data.set = currentBlock.getFieldValue('SET');
+                        stepInfo.label = '|·|';
+                    } else if (blockType === 'set_cardinality_container') {
+                        stepInfo.label = '|·|';
+                    } else if (blockType === 'set_complement') {
+                        stepInfo.data.set = currentBlock.getFieldValue('SET');
+                        stepInfo.label = 'ᶜ';
+                    } else if (blockType === 'set_complement_container') {
+                        stepInfo.label = 'ᶜ';
+                    } else if (blockType === 'set_compose') {
+                        stepInfo.data.left = currentBlock.getFieldValue('LEFT');
+                        stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
+                        stepInfo.label = '∘';
+                    } else if (blockType === 'set_compose_container') {
+                        stepInfo.label = '∘';
                     }
                     // Arithmetic & Number Theory
                     else if (blockType === 'arith_add') {
                         stepInfo.data.left = currentBlock.getFieldValue('LEFT');
                         stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
                         stepInfo.label = '+';
+                    } else if (blockType === 'arith_add_container') {
+                        stepInfo.label = '+';
                     } else if (blockType === 'arith_sub') {
                         stepInfo.data.left = currentBlock.getFieldValue('LEFT');
                         stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
+                        stepInfo.label = '-';
+                    } else if (blockType === 'arith_sub_container') {
                         stepInfo.label = '-';
                     } else if (blockType === 'arith_mul') {
                         stepInfo.data.left = currentBlock.getFieldValue('LEFT');
                         stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
                         stepInfo.label = '*';
+                    } else if (blockType === 'arith_mul_container') {
+                        stepInfo.label = '*';
                     } else if (blockType === 'arith_div') {
                         stepInfo.data.left = currentBlock.getFieldValue('LEFT');
                         stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
+                        stepInfo.label = '/';
+                    } else if (blockType === 'arith_div_container') {
                         stepInfo.label = '/';
                     } else if (blockType === 'arith_pow') {
                         stepInfo.data.base = currentBlock.getFieldValue('BASE');
                         stepInfo.data.exp = currentBlock.getFieldValue('EXP');
                         stepInfo.label = '^';
+                    } else if (blockType === 'arith_pow_container') {
+                        stepInfo.label = '^';
                     } else if (blockType === 'arith_divides') {
                         stepInfo.data.left = currentBlock.getFieldValue('LEFT');
                         stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
+                        stepInfo.label = '∣';
+                    } else if (blockType === 'arith_divides_container') {
                         stepInfo.label = '∣';
                     } else if (blockType === 'arith_mod') {
                         stepInfo.data.left = currentBlock.getFieldValue('LEFT');
                         stepInfo.data.middle = currentBlock.getFieldValue('MIDDLE');
                         stepInfo.data.modulus = currentBlock.getFieldValue('MODULUS');
                         stepInfo.label = '≡';
+                    } else if (blockType === 'arith_mod_container') {
+                        stepInfo.label = '≡';
                     } else if (blockType === 'arith_le') {
                         stepInfo.data.left = currentBlock.getFieldValue('LEFT');
                         stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
+                        stepInfo.label = '≤';
+                    } else if (blockType === 'arith_le_container') {
                         stepInfo.label = '≤';
                     } else if (blockType === 'arith_lt') {
                         stepInfo.data.left = currentBlock.getFieldValue('LEFT');
                         stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
                         stepInfo.label = '<';
+                    } else if (blockType === 'arith_lt_container') {
+                        stepInfo.label = '<';
                     } else if (blockType === 'arith_ge') {
                         stepInfo.data.left = currentBlock.getFieldValue('LEFT');
                         stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
+                        stepInfo.label = '≥';
+                    } else if (blockType === 'arith_ge_container') {
                         stepInfo.label = '≥';
                     } else if (blockType === 'arith_gt') {
                         stepInfo.data.left = currentBlock.getFieldValue('LEFT');
                         stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
                         stepInfo.label = '>';
+                    } else if (blockType === 'arith_gt_container') {
+                        stepInfo.label = '>';
+                    } else if (blockType === 'arith_gcd') {
+                        stepInfo.data.left = currentBlock.getFieldValue('LEFT');
+                        stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
+                        stepInfo.label = 'gcd';
+                    } else if (blockType === 'arith_gcd_container') {
+                        stepInfo.label = 'gcd';
+                    } else if (blockType === 'arith_lcm') {
+                        stepInfo.data.left = currentBlock.getFieldValue('LEFT');
+                        stepInfo.data.right = currentBlock.getFieldValue('RIGHT');
+                        stepInfo.label = 'lcm';
+                    } else if (blockType === 'arith_lcm_container') {
+                        stepInfo.label = 'lcm';
+                    } else if (blockType === 'arith_factorial') {
+                        stepInfo.data.value = currentBlock.getFieldValue('VALUE');
+                        stepInfo.label = '!';
+                    } else if (blockType === 'arith_factorial_container') {
+                        stepInfo.label = '!';
+                    } else if (blockType === 'arith_floor') {
+                        stepInfo.data.value = currentBlock.getFieldValue('VALUE');
+                        stepInfo.label = '⌊⌋';
+                    } else if (blockType === 'arith_floor_container') {
+                        stepInfo.label = '⌊⌋';
+                    } else if (blockType === 'arith_ceiling') {
+                        stepInfo.data.value = currentBlock.getFieldValue('VALUE');
+                        stepInfo.label = '⌈⌉';
+                    } else if (blockType === 'arith_ceiling_container') {
+                        stepInfo.label = '⌈⌉';
+                    } else if (blockType === 'arith_abs') {
+                        stepInfo.data.value = currentBlock.getFieldValue('VALUE');
+                        stepInfo.label = '||';
+                    } else if (blockType === 'arith_abs_container') {
+                        stepInfo.label = '||';
+                    } else if (blockType === 'arith_sum') {
+                        stepInfo.data.var = currentBlock.getFieldValue('VAR');
+                        stepInfo.data.expr = currentBlock.getFieldValue('EXPR');
+                        stepInfo.label = '∑';
+                    } else if (blockType === 'arith_sum_container') {
+                        stepInfo.label = '∑';
+                    } else if (blockType === 'arith_prod') {
+                        stepInfo.data.var = currentBlock.getFieldValue('VAR');
+                        stepInfo.data.expr = currentBlock.getFieldValue('EXPR');
+                        stepInfo.label = '∏';
+                    } else if (blockType === 'arith_prod_container') {
+                        stepInfo.label = '∏';
                     }
                     // Proof Tactics
                     else if (blockType === 'tactic_assume') {
                         stepInfo.data.var = currentBlock.getFieldValue('VAR');
                         stepInfo.data.prop = currentBlock.getFieldValue('PROP');
                         stepInfo.label = 'Assume';
+                    } else if (blockType === 'tactic_assume_container') {
+                        stepInfo.label = 'Assume';
                     } else if (blockType === 'tactic_suppose') {
                         stepInfo.data.var = currentBlock.getFieldValue('VAR');
                         stepInfo.data.prop = currentBlock.getFieldValue('PROP');
                         stepInfo.label = 'Suppose';
+                    } else if (blockType === 'tactic_suppose_container') {
+                        stepInfo.label = 'Suppose';
                     } else if (blockType === 'tactic_case') {
                         stepInfo.data.case = currentBlock.getFieldValue('CASE');
                         stepInfo.label = 'Case';
+                    } else if (blockType === 'tactic_case_container') {
+                        stepInfo.label = 'Case';
                     } else if (blockType === 'tactic_then') {
                         stepInfo.data.step = currentBlock.getFieldValue('STEP');
+                        stepInfo.label = 'Then';
+                    } else if (blockType === 'tactic_then_container') {
                         stepInfo.label = 'Then';
                     } else if (blockType === 'tactic_let') {
                         stepInfo.data.var = currentBlock.getFieldValue('VAR');
                         stepInfo.data.expr = currentBlock.getFieldValue('EXPR');
                         stepInfo.label = 'Let';
+                    } else if (blockType === 'tactic_let_container') {
+                        stepInfo.label = 'Let';
                     } else if (blockType === 'tactic_use') {
                         stepInfo.data.witness = currentBlock.getFieldValue('WITNESS');
                         stepInfo.label = 'Use';
+                    } else if (blockType === 'tactic_use_container') {
+                        stepInfo.label = 'Use';
                     } else if (blockType === 'tactic_split') {
+                        stepInfo.label = 'Split';
+                    } else if (blockType === 'tactic_split_container') {
                         stepInfo.label = 'Split';
                     } else if (blockType === 'tactic_left') {
                         stepInfo.label = 'Left';
+                    } else if (blockType === 'tactic_left_container') {
+                        stepInfo.label = 'Left';
                     } else if (blockType === 'tactic_right') {
+                        stepInfo.label = 'Right';
+                    } else if (blockType === 'tactic_right_container') {
                         stepInfo.label = 'Right';
                     } else if (blockType === 'tactic_simp') {
                         stepInfo.label = 'Simplify';
+                    } else if (blockType === 'tactic_simp_container') {
+                        stepInfo.label = 'Simplify';
                     } else if (blockType === 'tactic_rfl') {
+                        stepInfo.label = 'Reflexivity';
+                    } else if (blockType === 'tactic_rfl_container') {
                         stepInfo.label = 'Reflexivity';
                     } else if (blockType === 'tactic_contradiction') {
                         stepInfo.label = 'Contradiction';
+                    } else if (blockType === 'tactic_contradiction_container') {
+                        stepInfo.label = 'Contradiction';
                     } else if (blockType === 'tactic_apply') {
                         stepInfo.data.theorem = currentBlock.getFieldValue('THEOREM');
+                        stepInfo.label = 'Apply';
+                    } else if (blockType === 'tactic_apply_container') {
                         stepInfo.label = 'Apply';
                     }
 
@@ -832,48 +1470,96 @@
             steps.forEach((step, index) => {
                 if (step.type === 'proof_assume') {
                     text += `- Assume: ${step.data.statement}\n`;
+                } else if (step.type === 'proof_assume_container') {
+                    text += `- Assume (container)\n`;
                 } else if (step.type === 'proof_therefore') {
                     text += `- Therefore: ${step.data.conclusion}\n`;
+                } else if (step.type === 'proof_therefore_container') {
+                    text += `- Therefore (container)\n`;
                 } else if (step.type === 'proof_qed') {
                     text += `- QED\n`;
+                } else if (step.type === 'custom_text') {
+                    text += `- ${step.data.text}\n`;
                 }
                 // Logical Symbols
                 else if (step.type === 'logic_forall') {
                     text += `- ∀ ${step.data.var}, ${step.data.expr}\n`;
+                } else if (step.type === 'logic_forall_container') {
+                    text += `- ∀ (container)\n`;
                 } else if (step.type === 'logic_exists') {
                     text += `- ∃ ${step.data.var}, ${step.data.expr}\n`;
+                } else if (step.type === 'logic_exists_container') {
+                    text += `- ∃ (container)\n`;
                 } else if (step.type === 'logic_implies') {
                     text += `- ${step.data.left} → ${step.data.right}\n`;
+                } else if (step.type === 'logic_implies_container') {
+                    text += `- → (container)\n`;
                 } else if (step.type === 'logic_iff') {
                     text += `- ${step.data.left} ↔ ${step.data.right}\n`;
+                } else if (step.type === 'logic_iff_container') {
+                    text += `- ↔ (container)\n`;
                 } else if (step.type === 'logic_not') {
                     text += `- ¬ ${step.data.expr}\n`;
+                } else if (step.type === 'logic_not_container') {
+                    text += `- ¬ (container)\n`;
                 } else if (step.type === 'logic_and') {
                     text += `- ${step.data.left} ∧ ${step.data.right}\n`;
+                } else if (step.type === 'logic_and_container') {
+                    text += `- ∧ (container)\n`;
                 } else if (step.type === 'logic_or') {
                     text += `- ${step.data.left} ∨ ${step.data.right}\n`;
+                } else if (step.type === 'logic_or_container') {
+                    text += `- ∨ (container)\n`;
                 } else if (step.type === 'logic_eq') {
                     text += `- ${step.data.left} = ${step.data.right}\n`;
+                } else if (step.type === 'logic_eq_container') {
+                    text += `- = (container)\n`;
                 } else if (step.type === 'logic_neq') {
                     text += `- ${step.data.left} ≠ ${step.data.right}\n`;
+                } else if (step.type === 'logic_neq_container') {
+                    text += `- ≠ (container)\n`;
+                } else if (step.type === 'logic_true') {
+                    text += `- ⊤ (True)\n`;
+                } else if (step.type === 'logic_true_container') {
+                    text += `- ⊤ (container)\n`;
+                } else if (step.type === 'logic_false') {
+                    text += `- ⊥ (False)\n`;
+                } else if (step.type === 'logic_false_container') {
+                    text += `- ⊥ (container)\n`;
                 }
                 // Set & Relation
                 else if (step.type === 'set_elem') {
                     text += `- ${step.data.elem} ∈ ${step.data.set}\n`;
+                } else if (step.type === 'set_elem_container') {
+                    text += `- ∈ (container)\n`;
                 } else if (step.type === 'set_not_elem') {
                     text += `- ${step.data.elem} ∉ ${step.data.set}\n`;
+                } else if (step.type === 'set_not_elem_container') {
+                    text += `- ∉ (container)\n`;
                 } else if (step.type === 'set_subset') {
                     text += `- ${step.data.left} ⊆ ${step.data.right}\n`;
+                } else if (step.type === 'set_subset_container') {
+                    text += `- ⊆ (container)\n`;
                 } else if (step.type === 'set_proper_subset') {
                     text += `- ${step.data.left} ⊂ ${step.data.right}\n`;
+                } else if (step.type === 'set_proper_subset_container') {
+                    text += `- ⊂ (container)\n`;
                 } else if (step.type === 'set_union') {
                     text += `- ${step.data.left} ∪ ${step.data.right}\n`;
+                } else if (step.type === 'set_union_container') {
+                    text += `- ∪ (container)\n`;
                 } else if (step.type === 'set_intersection') {
                     text += `- ${step.data.left} ∩ ${step.data.right}\n`;
+                } else if (step.type === 'set_intersection_container') {
+                    text += `- ∩ (container)\n`;
                 } else if (step.type === 'set_difference') {
                     text += `- ${step.data.left} \\ ${step.data.right}\n`;
+                } else if (step.type === 'set_difference_container') {
+                    text += `- \\ (container)\n`;
                 } else if (step.type === 'set_empty') {
                     text += `- ∅\n`;
+                } else if (step.type === 'set_empty_container') {
+                    text += `- ∅ (container)\n`;
                 } else if (step.type === 'set_naturals') {
                     text += `- ℕ (Natural numbers)\n`;
                 } else if (step.type === 'set_integers') {
@@ -884,58 +1570,164 @@
                     text += `- ℝ (Real numbers)\n`;
                 } else if (step.type === 'set_function') {
                     text += `- ${step.data.func}(${step.data.arg})\n`;
+                } else if (step.type === 'set_function_container') {
+                    text += `- function (container)\n`;
+                } else if (step.type === 'set_relation') {
+                    text += `- ${step.data.left} ${step.data.relation} ${step.data.right}\n`;
+                } else if (step.type === 'set_relation_container') {
+                    text += `- relation (container)\n`;
+                } else if (step.type === 'set_cartesian') {
+                    text += `- ${step.data.left} × ${step.data.right}\n`;
+                } else if (step.type === 'set_cartesian_container') {
+                    text += `- × (container)\n`;
+                } else if (step.type === 'set_powerset') {
+                    text += `- 𝒫(${step.data.set})\n`;
+                } else if (step.type === 'set_powerset_container') {
+                    text += `- 𝒫 (container)\n`;
+                } else if (step.type === 'set_cardinality') {
+                    text += `- |${step.data.set}|\n`;
+                } else if (step.type === 'set_cardinality_container') {
+                    text += `- |·| (container)\n`;
+                } else if (step.type === 'set_complement') {
+                    text += `- ${step.data.set}ᶜ\n`;
+                } else if (step.type === 'set_complement_container') {
+                    text += `- ᶜ (container)\n`;
+                } else if (step.type === 'set_compose') {
+                    text += `- ${step.data.left} ∘ ${step.data.right}\n`;
+                } else if (step.type === 'set_compose_container') {
+                    text += `- ∘ (container)\n`;
                 }
                 // Arithmetic & Number Theory
                 else if (step.type === 'arith_add') {
                     text += `- ${step.data.left} + ${step.data.right}\n`;
+                } else if (step.type === 'arith_add_container') {
+                    text += `- + (container)\n`;
                 } else if (step.type === 'arith_sub') {
                     text += `- ${step.data.left} - ${step.data.right}\n`;
+                } else if (step.type === 'arith_sub_container') {
+                    text += `- - (container)\n`;
                 } else if (step.type === 'arith_mul') {
                     text += `- ${step.data.left} * ${step.data.right}\n`;
+                } else if (step.type === 'arith_mul_container') {
+                    text += `- * (container)\n`;
                 } else if (step.type === 'arith_div') {
                     text += `- ${step.data.left} / ${step.data.right}\n`;
+                } else if (step.type === 'arith_div_container') {
+                    text += `- / (container)\n`;
                 } else if (step.type === 'arith_pow') {
                     text += `- ${step.data.base} ^ ${step.data.exp}\n`;
+                } else if (step.type === 'arith_pow_container') {
+                    text += `- ^ (container)\n`;
                 } else if (step.type === 'arith_divides') {
                     text += `- ${step.data.left} ∣ ${step.data.right}\n`;
+                } else if (step.type === 'arith_divides_container') {
+                    text += `- ∣ (container)\n`;
                 } else if (step.type === 'arith_mod') {
                     text += `- ${step.data.left} ≡ ${step.data.middle} [MOD ${step.data.modulus}]\n`;
+                } else if (step.type === 'arith_mod_container') {
+                    text += `- ≡ (container)\n`;
                 } else if (step.type === 'arith_le') {
                     text += `- ${step.data.left} ≤ ${step.data.right}\n`;
+                } else if (step.type === 'arith_le_container') {
+                    text += `- ≤ (container)\n`;
                 } else if (step.type === 'arith_lt') {
                     text += `- ${step.data.left} < ${step.data.right}\n`;
+                } else if (step.type === 'arith_lt_container') {
+                    text += `- < (container)\n`;
                 } else if (step.type === 'arith_ge') {
                     text += `- ${step.data.left} ≥ ${step.data.right}\n`;
+                } else if (step.type === 'arith_ge_container') {
+                    text += `- ≥ (container)\n`;
                 } else if (step.type === 'arith_gt') {
                     text += `- ${step.data.left} > ${step.data.right}\n`;
+                } else if (step.type === 'arith_gt_container') {
+                    text += `- > (container)\n`;
+                } else if (step.type === 'arith_gcd') {
+                    text += `- gcd(${step.data.left}, ${step.data.right})\n`;
+                } else if (step.type === 'arith_gcd_container') {
+                    text += `- gcd (container)\n`;
+                } else if (step.type === 'arith_lcm') {
+                    text += `- lcm(${step.data.left}, ${step.data.right})\n`;
+                } else if (step.type === 'arith_lcm_container') {
+                    text += `- lcm (container)\n`;
+                } else if (step.type === 'arith_factorial') {
+                    text += `- ${step.data.value}!\n`;
+                } else if (step.type === 'arith_factorial_container') {
+                    text += `- ! (container)\n`;
+                } else if (step.type === 'arith_floor') {
+                    text += `- ⌊${step.data.value}⌋\n`;
+                } else if (step.type === 'arith_floor_container') {
+                    text += `- ⌊⌋ (container)\n`;
+                } else if (step.type === 'arith_ceiling') {
+                    text += `- ⌈${step.data.value}⌉\n`;
+                } else if (step.type === 'arith_ceiling_container') {
+                    text += `- ⌈⌉ (container)\n`;
+                } else if (step.type === 'arith_abs') {
+                    text += `- |${step.data.value}|\n`;
+                } else if (step.type === 'arith_abs_container') {
+                    text += `- || (container)\n`;
+                } else if (step.type === 'arith_sum') {
+                    text += `- ∑ ${step.data.var}, ${step.data.expr}\n`;
+                } else if (step.type === 'arith_sum_container') {
+                    text += `- ∑ (container)\n`;
+                } else if (step.type === 'arith_prod') {
+                    text += `- ∏ ${step.data.var}, ${step.data.expr}\n`;
+                } else if (step.type === 'arith_prod_container') {
+                    text += `- ∏ (container)\n`;
                 }
                 // Proof Tactics
                 else if (step.type === 'tactic_assume') {
                     text += `- Assume ${step.data.var}: ${step.data.prop}\n`;
+                } else if (step.type === 'tactic_assume_container') {
+                    text += `- Assume (container)\n`;
                 } else if (step.type === 'tactic_suppose') {
                     text += `- Suppose ${step.data.var}: ${step.data.prop}\n`;
+                } else if (step.type === 'tactic_suppose_container') {
+                    text += `- Suppose (container)\n`;
                 } else if (step.type === 'tactic_case') {
                     text += `- Case ${step.data.case}:\n`;
+                } else if (step.type === 'tactic_case_container') {
+                    text += `- Case (container)\n`;
                 } else if (step.type === 'tactic_then') {
                     text += `- Then: ${step.data.step}\n`;
+                } else if (step.type === 'tactic_then_container') {
+                    text += `- Then (container)\n`;
                 } else if (step.type === 'tactic_let') {
                     text += `- Let ${step.data.var} := ${step.data.expr}\n`;
+                } else if (step.type === 'tactic_let_container') {
+                    text += `- Let (container)\n`;
                 } else if (step.type === 'tactic_use') {
                     text += `- Use ${step.data.witness}\n`;
+                } else if (step.type === 'tactic_use_container') {
+                    text += `- Use (container)\n`;
                 } else if (step.type === 'tactic_split') {
                     text += `- Split\n`;
+                } else if (step.type === 'tactic_split_container') {
+                    text += `- Split (container)\n`;
                 } else if (step.type === 'tactic_left') {
                     text += `- Left\n`;
+                } else if (step.type === 'tactic_left_container') {
+                    text += `- Left (container)\n`;
                 } else if (step.type === 'tactic_right') {
                     text += `- Right\n`;
+                } else if (step.type === 'tactic_right_container') {
+                    text += `- Right (container)\n`;
                 } else if (step.type === 'tactic_simp') {
                     text += `- Simplify\n`;
+                } else if (step.type === 'tactic_simp_container') {
+                    text += `- Simplify (container)\n`;
                 } else if (step.type === 'tactic_rfl') {
                     text += `- Reflexivity\n`;
+                } else if (step.type === 'tactic_rfl_container') {
+                    text += `- Reflexivity (container)\n`;
                 } else if (step.type === 'tactic_contradiction') {
                     text += `- Contradiction\n`;
+                } else if (step.type === 'tactic_contradiction_container') {
+                    text += `- Contradiction (container)\n`;
                 } else if (step.type === 'tactic_apply') {
                     text += `- Apply ${step.data.theorem}\n`;
+                } else if (step.type === 'tactic_apply_container') {
+                    text += `- Apply (container)\n`;
                 }
             });
 
